@@ -12,14 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM python:3.7-slim-buster
+FROM python:3.9-slim
 
 RUN apt update
 RUN apt -y install ruby ruby-dev
 RUN gem install gazer
 
-COPY . /app
-WORKDIR /app
+COPY . /looker_deployer
+WORKDIR /looker_deployer
 RUN pip install .
 WORKDIR /
 ENTRYPOINT ["ldeploy"]
